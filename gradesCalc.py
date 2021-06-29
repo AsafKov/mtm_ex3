@@ -32,6 +32,8 @@ def final_grade(input_path: str, output_path: str) -> int:
         average += grade
     input_file.close()
     output_file.close()
+    if average == 0:
+        return average
     return int(average / len(grades))
 
 
@@ -41,6 +43,7 @@ def clean(record: list) -> list:
     record.remove(record[1])
     record[1] = record[1].split("\n")[0]
     record[1] = record[1].strip()
+    record[1] = str(int(record[1]))
     return record
 
 
