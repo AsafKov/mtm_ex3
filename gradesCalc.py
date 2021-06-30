@@ -36,7 +36,7 @@ def final_grade(input_path: str, output_path: str) -> int:
         return average
     return int(average / len(grades))
 
-
+# Removes redundant parts from the record (excess space, enters etc)
 def clean(record: list) -> list:
     record[0] = record[0].strip()
     record.remove(record[1])
@@ -47,6 +47,7 @@ def clean(record: list) -> list:
     return record
 
 
+# Checks if the record meets the condition we defined
 def is_valid_record(record: list) -> bool:
     id_trimmed = len((record[0]).split()[0])
     if record[0].startswith('0') or id_trimmed != 8:
